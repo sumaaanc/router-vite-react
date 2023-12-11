@@ -1,16 +1,19 @@
 import React, {useEffect, useState} from 'react'
+import { useLoaderData } from 'react-router-dom'
+
 
 
 function Github() {
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
 
-    const URL = 'https://api.github.com/users/sumaaanc'
-    useEffect(()=>{
-        fetch(URL)
-        .then(res => res.json())
-        .then(res => {
-            setData(res)})
-    }, [])
+    // const URL = 'https://api.github.com/users/sumaaanc'
+    // useEffect(()=>{
+    //     fetch(URL)
+    //     .then(res => res.json())
+    //     .then(res => {
+    //         setData(res)})
+    // }, [])
+    const data = useLoaderData()
   return (
     <div className="bg-gradient-to-br from-gray-200 to-gray-100 text-white text-center py-8 px-6 rounded-lg shadow-lg">
     <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
@@ -44,3 +47,11 @@ function Github() {
 }
 
 export default Github
+
+export const loaderGetData = async ()=>{
+    const URL = 'https://api.github.com/users/sumaaanc'
+    let response = await fetch(URL)
+    let data = await response.json()
+    console.log("loader function")
+    return data
+}

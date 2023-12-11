@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link , Outlet} from 'react-router-dom'
 
 
 function About() {
@@ -26,6 +27,9 @@ function About() {
                             Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at?
                             Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.
                         </p>
+                        <p className="mt-4 text-gray-600">
+                            <Link to="/about/company">click here</Link>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -33,5 +37,6 @@ function About() {
     </div>
   )
 }
+
 
 export default About
